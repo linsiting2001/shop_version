@@ -5,7 +5,7 @@
           <div class="avatar_box">
               <img src="../assets/logo.png" alt=""> 
           </div>
-          <!-- 表单区域 -->
+          <!-- 表单区域 form表单组件的使用-->
           <el-form ref="loginFormRef" label-width="0px" :model="loginForm" :rules="loginFormRules" class="login_form">
               <!-- 用户名 -->
                 <el-form-item prop="username">
@@ -57,34 +57,34 @@ export default {
             this.$refs.loginFormRef.resetFields()
         },
         login() {
-            //有后台返回数据  登录功能
-            // //表单的校验 validate() 方法，第一个形参是布尔值，验证的结果
-            // this.$refs.loginFormRef.validate(async valid => {
-            //     // console.log(valid)
-            //     if(!valid) return;
-            //     //result 返回一个对象，运用解构赋值的方式解构出来
-            //     // const result = await this.$http.post('login', this.loginForm)
-            //     // console.log(result)
-            //     const {data : res} = await this.$http.post('login', this.loginForm)
-            //     // console.log(res)
-            //     // this.$message.error() elementui的消息弹框功能
-            //     if(res.meta.status !== 200) return this.$message.error('登录失败')
-            //     // console.log(登录成功)
-            //     this.$message.success('登录成功')
+            // 有后台返回数据  登录功能~
+            //表单的校验 validate() 方法，第一个形参是布尔值，验证的结果
+            this.$refs.loginFormRef.validate(async valid => {
+                // console.log(valid)
+                if(!valid) return;
+                //result 返回一个对象，运用解构赋值的方式解构出来
+                // const result = await this.$http.post('login', this.loginForm)
+                // console.log(result)
+                const {data : res} = await this.$http.post('login', this.loginForm)
+                // console.log(res)
+                // this.$message.error() elementui的消息弹框功能
+                if(res.meta.status !== 200) return this.$message.error('登录失败')
+                // console.log(登录成功)
+                this.$message.success('登录成功')
 
-            //     //1. 将登录成功之后的taken，保存在客户端的 sessionStorage中
-            //     //taken 在返回的res.data里的token属性里
-            //     //sessionStorage 是会话期间的存储机制，localStorage 是持久的存储机制
-            //         //1.1 项目中出现了登录之外的其他接口，必须在登录之后才能访问
-            //     window.sessionStorage.setItem("token", res.data.token)
-            //         //1.2 token只应在当前网站打开期间生效，所以将token保存在 sessionStorage 中
-            //     //2.通过编程式导航跳转到后台主页，路由地址是 /home
-            //     this.$router.push("/home") 
-            // })
+                //1. 将登录成功之后的taken，保存在客户端的 sessionStorage中
+                //taken 在返回的res.data里的token属性里
+                //sessionStorage 是会话期间的存储机制，localStorage 是持久的存储机制
+                    //1.1 项目中出现了登录之外的其他接口，必须在登录之后才能访问
+                window.sessionStorage.setItem("token", res.data.token)
+                    //1.2 token只应在当前网站打开期间生效，所以将token保存在 sessionStorage 中
+                //2.通过编程式导航跳转到后台主页，路由地址是 /home
+                this.$router.push("/home") 
+            })
 
-            this.$message.success('登录成功')
+            // this.$message.success('登录成功')
             //this.$message.error('登录失败')
-            this.$router.push("/home")
+            // this.$router.push("/home")
         }
     }
 }
