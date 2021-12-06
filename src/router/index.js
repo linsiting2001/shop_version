@@ -5,6 +5,8 @@ import Home from '@/components/home.vue'
 // 1.组件的导入
 import Welcome from '@/components/welcome.vue'
 import Users from '@/components/user/user.vue'
+import Rights from '@/components/power/rights.vue'
+import Roles from  '@/components/power/roles.vue'
 
 
 Vue.use(VueRouter)
@@ -39,6 +41,18 @@ const routes = [
         path: '/users',
         name: 'users',
         component: Users
+      },
+      {
+        // 2.路由的配置
+        path: '/rights',
+        name: 'rights',
+        component: Rights
+      },
+      {
+        // 2.路由的配置
+        path: '/roles',
+        name: 'roles',
+        component: Roles
       },
     ],
   }
