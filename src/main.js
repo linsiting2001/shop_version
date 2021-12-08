@@ -6,6 +6,7 @@ import axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import { MessageBox } from 'element-ui';
+import TreeTable from 'vue-table-with-tree-grid'
 
 //导入全局样式表
 import './assets/css/global.css'
@@ -27,6 +28,7 @@ Vue.prototype.$confirm = MessageBox.confirm
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.component('tree-table', TreeTable)
 
 new Vue({
   router,

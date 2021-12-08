@@ -7,6 +7,7 @@ import Welcome from '@/components/welcome.vue'
 import Users from '@/components/user/user.vue'
 import Rights from '@/components/power/rights.vue'
 import Roles from  '@/components/power/roles.vue'
+import Cates from '@/components/goods/Cate.vue'
 
 
 Vue.use(VueRouter)
@@ -53,6 +54,12 @@ const routes = [
         path: '/roles',
         name: 'roles',
         component: Roles
+      },
+      {
+        // 2.路由的配置
+        path: '/categories',
+        name: 'categories',
+        component: Cates
       },
     ],
   }
